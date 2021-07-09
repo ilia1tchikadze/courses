@@ -1,0 +1,20 @@
+body{
+    background-color: rgba(rgb(128, 64, 64), rgb(110, 161, 110), rgb(38, 38, 82), alpha);
+}
+
+.container{
+    margin-top: 100px;
+}
+
+.form_img{
+    background-image: url(../../../../images/2-2-e1537982141352.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    
+    margin-top: 200px;
+    width: 20%;
+    
+}
