@@ -1,12 +1,22 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, {useEffect} from 'react';
 import css from "./card.module.css"
 import {useSelector, useDispatch} from "react-redux"
 import  CurrencyFormatter  from "currency-formatter";
+import { ClassNames } from '@emotion/react';
 
 function Card(props) {
     const {courses, totalquantity, prices} = useSelector(state => state.CartReducer)
     const dispatch = useDispatch();
+    // useEffect(() => {
+    //     window.localStorage.setItem("cart", JSON.stringify(courses))
+    // }, [])
+
+    const alert = ()=>{
+        console.log( prices)
+
+    }
+
     return (
 
         <div className={classNames("cart", css.cart)}>
@@ -63,7 +73,7 @@ function Card(props) {
                              </div>
                          </div>
                          <div className="col-2">
-                             <div className="cart__remove" onClick={() => dispatch({type: "REMOVE", payload: course.id})}>
+                             <div className="cart__remove" >
                                 <i  className={classNames("far fa-trash-alt delete", css.delete )}
                                 
                                 ></i>
@@ -74,17 +84,9 @@ function Card(props) {
                     </div>
                     <div className="col-3 summary-col">
                         <div className="summary">
-                            <div className="summary__heading">
-                                Summary
-                            </div>
+                            
                             <div className="summary__details">
-                                <div className="row mb-10">
-                                    <div className="col-6">
-                                        Total Items: 
-                                    </div>
-                                <div className="col-6">{totalquantity}</div>
-                                    
-                                </div>
+                                
                                 <div className="row mb-10">
                                     <div className="col-6">
                                         Total Price 
@@ -93,7 +95,7 @@ function Card(props) {
                                     {CurrencyFormatter.format(prices, {code: "USD"})}
                                     </div>
                                 </div>
-                                <button type="button" className="checkout">Checkout</button>
+                                <button type="button" className={classNames("checkout", css.checkout)} onClick={alert}>Checkout</button>
                             </div>
                         </div>
                     </div>

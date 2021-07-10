@@ -13,12 +13,14 @@ function Details(props) {
     const [quantity, setQuantity] = useState(0)
     const dispatch = useDispatch()
     const {id} = useParams();
+   
     // console.log(id)
     const {course} = useSelector(state => state.ProductReducer)
-    // console.log(course)
+
+    console.log(course)
 
    useEffect(()=>{
-        dispatch({type : "COURSE", id:id})
+        dispatch({type : "COURSE", id})
    }, [id])
 
    const dec = () => {

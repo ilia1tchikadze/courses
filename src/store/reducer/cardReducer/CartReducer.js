@@ -38,29 +38,16 @@ const CartReducer =(state = init, action) => {
             case "DEC":
                 findCourse = state.courses.find(course => course.id === action.payload)
                 index = state.courses.findIndex(course => course.id === action.payload)
-                if(findCourse.quantity > 1){
-                    
-                }
+                
                 
                 findCourse.quantity -= 1
                 state.courses[index] = findCourse;
                 return{
-                ...state, prices: state.prices - findCourse.discountPrice, totalquantity:state.totalquantity - 1
+                ...state, prices: state.prices - findCourse.discountPrice, totalquantity : state.totalquantity - 1
                  
             }
 
-            case "REMOVE":
-                findCourse = state.courses.find(course => course.id === action.payload)
-                const filtered = state.courses.filter(course => course.id !== action.payload)
-                return{
-                    ...state,
-                    courses: filtered,
-                    prices: state.prices - findCourse.discountPrice * findCourse.quantity, 
-                    totalquantity: state.totalquantity - findCourse.quantity
-
-
-                     
-                }
+          
 
            
 

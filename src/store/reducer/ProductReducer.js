@@ -93,7 +93,7 @@ const init = {
 const ProductReducer = (state = init, action) => {
     switch (action.type) {
         case "COURSE":
-        return {...state, course: state.courses.find(course => course.id === parseInt(action.id)) }
+        return {...state, course: state.courses.find(course => course.id === parseInt(action.id))}
         default:
         return state;
     }
